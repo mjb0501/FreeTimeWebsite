@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    include 'connectionInfo.php'
+?>
 <html lang="en">
 <head>
     <title>Login</title>
@@ -50,6 +53,7 @@
         </div>
         <div class="col-sm-8 text-left">
             <form name="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <br/>
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" value="<?php echo $username; ?>" size="30"/>
                 <span class="error">* <?php echo $usernameErr;?></span>
@@ -60,6 +64,9 @@
                 <br/>
                 <input type="submit" value="Submit" id="submit"/>
             </form>
+            <?php
+                include 'insertValidData.php';
+            ?>
         </div>
         <div class="col-sm-2 sidenav">
             <div class="well">
