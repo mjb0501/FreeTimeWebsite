@@ -26,7 +26,6 @@
             $passwordErr = "Password is incorrect";
             $isValid = false;
         }
-
     }
 
     function clean_input($data) {

@@ -2,7 +2,7 @@
     if ($isValid) {
         try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-
+            /*
             //set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -21,11 +21,14 @@
 
             //need to create confirmation page for whenever a review is submitted rewatch Database_ConnectingWithPHP
             header("Location: confirmation.php");
+            */
         }
         catch(PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
         } finally {
             $conn = null;
         }
+
+        header("Location: confirmation.php");
     }
 ?>
