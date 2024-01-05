@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <?php
-    include 'connectionInfo.php'
+include 'connectionInfo.php';
+if(!isset($_SESSION))
+{
+    session_start();
+}
+if (!isset($_SESSION['authenticated']))
+{
+    header('Location: login.php');
+    exit;
+}
 ?>
 <html lang="en">
 <head>
-    <title>Login</title>
+    <title>Confirmation</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/StyleSheet.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="CSS/StyleSheet.css" type="text/css">
+    <link rel="stylesheet" href="../CSS/StyleSheet.css" type="text/css">
+    <script src="../Javascript/scripts.js" defer></script>
 </head>
 <body>
-<?php
-    include 'inputValidate.php';
-?>
-
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -52,21 +58,12 @@
             <p><a href="#">Link</a></p>
         </div>
         <div class="col-sm-8 text-left">
-            <form name="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                <br/>
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" value="<?php echo $username; ?>" size="30"/>
-                <span class="error">* <?php echo $usernameErr;?></span>
-                <br/>
-                <label for="password">Password</label>
-                <input type="text" name="password" id="password" value="<?php echo $password; ?>" size="30"/>
-                <span class="error">* <?php echo $passwordErr;?></span>
-                <br/>
-                <input type="submit" value="Submit" id="submit"/>
+            <h3>Create Review</h3>
+            <br/>
+            <form>
+                //create form for submission to database here
             </form>
-            <?php
-                include 'loginAttempt.php';
-            ?>
+            <button action="/review.php"></button>
         </div>
         <div class="col-sm-2 sidenav">
             <div class="well">

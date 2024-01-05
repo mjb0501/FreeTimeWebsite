@@ -1,26 +1,13 @@
 <!DOCTYPE html>
-<?php
-    include 'connectionInfo.php';
-    if(!isset($_SESSION))
-    {
-        session_start();
-    }
-    if (!isset($_SESSION['authenticated']))
-    {
-        header('Location: login.php');
-        exit;
-    }
-?>
 <html lang="en">
 <head>
-    <title>Confirmation</title>
+    <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/StyleSheet.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../CSS/StyleSheet.css" type="text/css">
     <script src="../Javascript/scripts.js" defer></script>
 </head>
 <body>
@@ -42,9 +29,10 @@
                 <li><a href="#">Games</a></li>
                 <li><a href="#">Books</a></li>
                 <li><a href="#">Music</a></li>
+                <li id="createReview" class="invisible"><a href="#">Create Review</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             </ul>
         </div>
     </div>
@@ -58,10 +46,11 @@
             <p><a href="#">Link</a></p>
         </div>
         <div class="col-sm-8 text-left">
-            <h3>Login Accepted</h3>
-            <br/>
-            <p>You are now logged in. Click the button below to create a review.</p>
-            <button id="createReview">Create Review</button>
+            <h1>Marley's Logging Website</h1>
+            <p>This website is a free time project created by Marley.  The goal of this website is to present the user with various reviews written by Marley about the different forms of media he has consumed.  Things such as movies, video games, books, music, etc.</p>
+            <hr>
+            <h3>Recent Reviews</h3>
+            <p>This is where recent reviews will show in a column like order.</p>
         </div>
         <div class="col-sm-2 sidenav">
             <div class="well">

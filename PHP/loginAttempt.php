@@ -29,6 +29,8 @@
             $conn = null;
         }
 
+        $_SESSION['authenticated']=true;
+
         header("Location: confirmation.php");
     }
 ?>

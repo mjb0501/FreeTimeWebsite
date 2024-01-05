@@ -5,15 +5,10 @@
     {
         session_start();
     }
-    if (!isset($_SESSION['authenticated']))
-    {
-        header('Location: login.php');
-        exit;
-    }
 ?>
 <html lang="en">
 <head>
-    <title>Confirmation</title>
+    <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -24,6 +19,10 @@
     <script src="../Javascript/scripts.js" defer></script>
 </head>
 <body>
+<?php
+    include 'inputValidate.php';
+?>
+
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -58,10 +57,21 @@
             <p><a href="#">Link</a></p>
         </div>
         <div class="col-sm-8 text-left">
-            <h3>Login Accepted</h3>
-            <br/>
-            <p>You are now logged in. Click the button below to create a review.</p>
-            <button id="createReview">Create Review</button>
+            <form name="form1" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <br/>
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" value="<?php echo $username; ?>" size="30"/>
+                <span class="error">* <?php echo $usernameErr;?></span>
+                <br/>
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" value="<?php echo $password; ?>" size="30"/>
+                <span class="error">* <?php echo $passwordErr;?></span>
+                <br/>
+                <input type="submit" value="Submit" id="submit"/>
+            </form>
+            <?php
+                include 'loginAttempt.php';
+            ?>
         </div>
         <div class="col-sm-2 sidenav">
             <div class="well">
